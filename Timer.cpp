@@ -55,10 +55,10 @@ void Timer::refresh(int16_t rotaryValue, ClickEncoder::Button b) {
 
 	} else {
 		if (!_finished) {
-			//teeServo.out();
 			_currentTime = 0;
 			_finished = true;
 			displayFinished();
+      doAction.strike();
 		}
 	}
 

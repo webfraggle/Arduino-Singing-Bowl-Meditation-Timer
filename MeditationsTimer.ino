@@ -41,7 +41,7 @@ void setup() {
   Serial.begin(9600);
 
   
-  encoder = new ClickEncoder(8, 9, 10, 4);
+  encoder = new ClickEncoder(7, 6, 5, 4);
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
     Serial.println(F("SSD1306 allocation failed"));
     for(;;); // Don't proceed, loop forever
@@ -143,6 +143,11 @@ void loop() {
       {
         currentState = nextState;
       }
+    break;
+    case 3:
+      Serial.print("Case 3");
+      
+      
     break;
     
   }

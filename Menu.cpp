@@ -3,12 +3,13 @@
 #include <ClickEncoder.h>
 
 #include "DisplayTime.h"
+#include "DoAction.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Fonts/FreeSans9pt7b.h>
 
 Menu::Menu(Adafruit_SSD1306 *display) :
-		_last(0), _menuPosition(1), _maxMenuItems(2), _nextState(255), t(false), previousMillis(
+		_last(0), _menuPosition(1), _maxMenuItems(3), _nextState(255), t(false), previousMillis(
 				0) {
           _display = display;
 }
@@ -45,7 +46,8 @@ void Menu::refresh(int16_t rotaryValue, ClickEncoder::Button b) {
 
 				break;
 			case 3:
-				_nextState = 3;
+				//_nextState = 3;
+       doAction.strike();
 				break;
 			case 4:
 				_nextState = 4;
@@ -82,6 +84,8 @@ void Menu::display() {
   _display->print("Start");
   _display->setCursor(4, 28);
   _display->print("Dauer");
+   _display->setCursor(4, 43);
+  _display->print("Dong");
 //  _display->setCursor(4, 43);
 //  _display->print("Zeit 1");
 //  _display->setCursor(4, 58);
